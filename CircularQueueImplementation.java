@@ -35,7 +35,6 @@ class CircularQueue<E> {
         front = -1;
         rear = -1;
     }
-
     /**
      * Enqueue elements to rear.
      */
@@ -47,13 +46,11 @@ class CircularQueue<E> {
             rear = (rear + 1) % circularQueueElements.length;
             circularQueueElements[rear] = item;
             currentSize++;
-            
             if (front == -1) {
 				front = rear;
 			}
         }
     }
-
     /**
      * Dequeue element from Front.
      */
@@ -70,50 +67,33 @@ class CircularQueue<E> {
         }
         return deQueuedElement;
     }
-
-    /**
-     * Check if queue is full.
-     */
+     //Check if queue is full.
     public boolean isFull() {
         return (currentSize == circularQueueElements.length);
-    }
-
-    /**
-     * Check if Queue is empty.
-     */
+    } 
+    // Check if Queue is empty.
     public boolean isEmpty() {
         return (currentSize == 0);
     }
-
     @Override
     public String toString() {
         return "CircularQueue [" + Arrays.toString(circularQueueElements) + "]";
     }
-
 }
-
 class QueueFullException extends RuntimeException {
-
     private static final long serialVersionUID = 1L;
-
     public QueueFullException() {
         super();
     }
-
     public QueueFullException(String message) {
         super(message);
     }
-
 }
-
 class QueueEmptyException extends RuntimeException {
-
     private static final long serialVersionUID = 1L;
-
     public QueueEmptyException() {
         super();
     }
-
     public QueueEmptyException(String message) {
         super(message);
     }
